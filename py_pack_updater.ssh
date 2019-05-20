@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# Update pip
+pip3 install --upgrade pip 
 
+# Create a list of all the installed packages
 py_packs=`pip3 freeze | sed -E 's/[==0-9.0-9.0-9]//g'`
 
-echo$py_packs
-
+# Update each item in the list
 for pack in $py_packs
 do
 	pip3 install -U $pack
